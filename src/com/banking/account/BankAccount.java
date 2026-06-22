@@ -1,4 +1,7 @@
-import java.util.UUID;
+package com.banking.account;
+
+
+import com.banking.model.CorporateCustomer;
 
 
 abstract class BankAccount {
