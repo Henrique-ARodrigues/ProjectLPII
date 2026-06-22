@@ -1,6 +1,7 @@
 package com.banking.account;
 
-import com.banking.customer.CorporateCustomer;
+import com.banking.model.CorporateCustomer;
+
 
 public class CheckingAccount extends BankAccount {
     

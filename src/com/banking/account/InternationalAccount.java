@@ -1,6 +1,6 @@
 package com.banking.account;
 
-import com.banking.customer.CorporateCustomer;
+import com.banking.model.CorporateCustomer;
 
 public class InternationalAccount extends BankAccount {
     
