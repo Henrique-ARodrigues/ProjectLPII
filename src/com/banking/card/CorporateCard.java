@@ -24,59 +24,19 @@ public class CorporateCard {
         this.holder = holder;
     }
 
-    public String getCardNumber() {
-        return cardNumber;
-    }
+    public String getCardNumber() { return cardNumber; }
+    public String getHolderName() { return holderName; }
+    public String getCvv() { return cvv; }
+    public String getExpirationDate() { return expirationDate; }
+    public String getStatus() { return status; }
+    public double getDailyLimit() { return dailyLimit; }
+    public Employee getHolder() { return holder; }
 
-    public String getHolderName() {
-        return holderName;
-    }
-
-    public String getCvv() {
-        return cvv;
-    }
-
-    public String getExpirationDate() {
-        return expirationDate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public double getDailyLimit() {
-        return dailyLimit;
-    }
-
-    public Employee getHolder() {
-        return holder;
-    }
-
-    public void setCardNumber(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public void setHolderName(String holderName) {
-        this.holderName = holderName;
-    }
-
-    public void setCvv(String cvv) {
-        this.cvv = cvv;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setDailyLimit(double dailyLimit) {
-        this.dailyLimit = dailyLimit;
-    }
-
-    public void setHolder(Employee holder) {
-        this.holder = holder;
-    }
+    public void setCardNumber(String cardNumber) { this.cardNumber = cardNumber; }
+    public void setHolderName(String holderName) { this.holderName = holderName; }
+    public void setCvv(String cvv) { this.cvv = cvv; }
+    public void setExpirationDate(String expirationDate) { this.expirationDate = expirationDate; }
+    public void setStatus(String status) { this.status = status; }
+    public void setDailyLimit(double dailyLimit) { this.dailyLimit = dailyLimit; }
+    public void setHolder(Employee holder) { this.holder = holder; }
 }
