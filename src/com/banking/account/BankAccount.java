@@ -23,7 +23,7 @@ public abstract class BankAccount {
     
     
     public void deposit(double amount) {
-        if (amount > 0) {
+        if(amount > 0) {
             this.balance += amount;
             System.out.println("Deposit of R$" + amount + " successful.");
         } else {
@@ -32,7 +32,7 @@ public abstract class BankAccount {
     }
 
     public void withdraw(double amount) {
-        if (amount <= 0) {
+        if(amount <= 0) {
             System.out.println("ERROR: Withdrawal amount must be positive.");
         } else if (amount <= this.balance) {
             this.balance -= amount;
@@ -44,17 +44,15 @@ public abstract class BankAccount {
     
     public abstract double calculateFees();
     
-    public void bankTransfer(BankAccount source, double amount) {
-        
-        if(this.balance >= amount) {
-            withdraw(amount);
-            source.deposit(amount);
-            System.out.println("Transfer of R$" + amount + " successful.");
-        } else {
-            System.out.println("ERROR: Insufficient funds.");
-        }
-        
+    public void bankTransfer(BankAccount destination, double amount) {
+    if(this.balance >= amount) {
+        this.withdraw(amount);
+        destination.deposit(amount);
+        System.out.println("Transfer of R$" + amount + " successful.");
+    } else {
+        System.out.println("ERROR: Insufficient funds.");
     }
+}
     
     
     
