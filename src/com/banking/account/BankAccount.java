@@ -4,7 +4,7 @@ package com.banking.account;
 import com.banking.model.CorporateCustomer;
 
 
-abstract class BankAccount {
+public abstract class BankAccount {
     
     private CorporateCustomer owner;
     private double balance;
