@@ -9,16 +9,18 @@ public abstract class Transaction {
     
     private UUID transactionID;
     private BankAccount source;
+    private BankAccount destination;
     private double amount;
     private LocalDateTime timestamp;
     private String status;
     
     
     
-    public Transaction(BankAccount source, double amount, LocalDateTime timestamp) {
+    public Transaction(BankAccount source, double amount, LocalDateTime timestamp, BankAccount destination;) {
         this.transactionID = UUID.randomUUID();
         this.amount = amount;
         this.source = source;
+        this.destination = destination;
         this.timestamp = timestamp;
         this.status = "PENDING";
     }
@@ -42,18 +44,19 @@ public abstract class Transaction {
     // Tenta validar a transação e, se aprovada, efetua o saque na conta de origem.
      
     public void process() {
-        // Só avança se passar na validação do antifraude
-        if(this.validate()) {
-            
+        if (this.validate()) {
             // Verifica se a conta de origem tem saldo suficiente
             if (this.source.getBalance() >= this.amount) {
+
                 this.source.withdraw(this.amount);
-                // Mantém o status como "APPROVED" pois o dinheiro saiu com sucesso
+                this.destination.deposit(this.amount); 
+                
+                System.out.println("Transaction " + this.transactionID + " processed successfully!");
+
             } else {
                 this.status = "FAILED";
                 System.out.println("Transaction FAILED: Insufficient funds.");
             }
-            
         } else {
             System.out.println("Transaction FAILED: Blocked by AntiFraud Engine.");
         }
