@@ -1,3 +1,5 @@
+package com.banking.model;
+
 import java.util.UUID;
 
 
@@ -9,7 +11,7 @@ public class User {
 
     
 
-    public User(String email, int password) {
+    public User(String email, String password) {
         
         this.id = UUID.randomUUID();
         this.email = email;
@@ -28,7 +30,11 @@ public class User {
         return id;
     }
 
+<<<<<<< HEAD
     public int getPassword() {
+=======
+    public String getPassword() {
+>>>>>>> 18fa0de1ca0b7ae6bfdc0ac741415764ee23c260
         return password;
     }
 
@@ -39,7 +45,7 @@ public class User {
         this.email = email;
     }
 
-    public void setPassword(int password ) {
+    public void setPassword(String password) {
         this.password = password ;
     }
 

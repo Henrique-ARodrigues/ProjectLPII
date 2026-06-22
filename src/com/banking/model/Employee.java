@@ -1,9 +1,11 @@
+package com.banking.model;
+
+
 public class Employee {
 
     private String name;
     private String cpf;
     private String department;
-
     public Employee(String name, String cpf, String department) {
         this.name = name;
         this.cpf = cpf;

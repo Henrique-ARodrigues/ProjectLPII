@@ -1,10 +1,13 @@
-import java.util.UUID;
+package com.banking.account;
 
 
-abstract class BankAccount {
+import com.banking.model.CorporateCustomer;
+
+
+public abstract class BankAccount {
     
     private CorporateCustomer owner;
-    protected double balance;
+    private double balance;
     private String agency;
     private String accountNumber;
     

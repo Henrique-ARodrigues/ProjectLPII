@@ -1,3 +1,5 @@
+package com.banking.model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +12,8 @@ public class CorporateCustomer extends User {
     private List<Employee> allowedEmployees;
     
     
-    public CorporateCustomer(String name, String email, String cnpj, String businessName, String tradeName) {
-        super(name, email); // Supondo que seu User receba name e email no construtor
+    public CorporateCustomer(String cnpj, String businessName, String tradeName, String email, String password) {
+        super(email, password);
         this.cnpj = cnpj;
         this.businessName = businessName;
         this.tradeName = tradeName;
