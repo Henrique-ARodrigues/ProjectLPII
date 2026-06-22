@@ -1,18 +1,33 @@
+package com.banking.account;
+
+import com.banking.customer.CorporateCustomer; // Ou o pacote correto do seu Customer
+
 public class InvestmentAccount extends BankAccount {
-    private double totalInvestided;
     
+    private double totalInvested;
     
-    public InvestmentAccount(double totalInvestided, CorporateCustomer owner, double balance, String agency, String accountNumber) {
-        
+    public InvestmentAccount(double totalInvested, CorporateCustomer owner, double balance, String agency, String accountNumber) {
         super(owner, balance, agency, accountNumber);
-        this.totalInvestided = totalInvestided;
-        
+        this.totalInvested = totalInvested;
     }
     
     
+    // Calcula as taxas da conta de investimento.
+     // Taxa de administração de 0.5% sobre o total investido.
+     
     @Override
     public double calculateFees() {
-        
+        // 0.5% de taxa administrativa sobre o valor investido
+        return this.totalInvested * 0.005;
+    }
+
+    // Getters
+    public double getTotalInvested() {
+        return totalInvested;
     }
     
+    // Setters
+    public void setTotalInvested(double totalInvested) {
+        this.totalInvested = totalInvested;
+    }
 }
