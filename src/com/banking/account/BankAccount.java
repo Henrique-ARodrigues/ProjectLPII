@@ -7,7 +7,7 @@ import com.banking.model.CorporateCustomer;
 abstract class BankAccount {
     
     private CorporateCustomer owner;
-    protected double balance;
+    private double balance;
     private String agency;
     private String accountNumber;
     
