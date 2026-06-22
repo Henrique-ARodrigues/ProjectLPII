@@ -7,18 +7,10 @@ public class DebitCard extends CorporateCard {
 
     private CheckingAccount linkedAccount;
 
-    public DebitCard(String cardNumber,
-                     String holderName,
-                     String cvv,
-                     String expirationDate,
-                     String status,
-                     double dailyLimit,
-                     Employee holder,
-                     CheckingAccount linkedAccount) {
-
-        super(cardNumber, holderName, cvv, expirationDate,
-              status, dailyLimit, holder);
-
+    public DebitCard(String cardNumber, String holderName, String cvv,
+                     String expirationDate, String status, double dailyLimit,
+                     Employee holder, CheckingAccount linkedAccount) {
+        super(cardNumber, holderName, cvv, expirationDate, status, dailyLimit, holder);
         this.linkedAccount = linkedAccount;
     }
 
