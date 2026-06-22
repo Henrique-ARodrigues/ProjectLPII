@@ -42,22 +42,19 @@ public abstract class Transaction {
     // Tenta validar a transação e, se aprovada, efetua o saque na conta de origem.
      
     public void process() {
-        // Só avança se passar na validação do antifraude
-        if(this.validate()) {
-            
-            // Verifica se a conta de origem tem saldo suficiente
-            if (this.source.getBalance() >= this.amount) {
-                this.source.withdraw(this.amount);
-                // Mantém o status como "APPROVED" pois o dinheiro saiu com sucesso
-            } else {
-                this.status = "FAILED";
-                System.out.println("Transaction FAILED: Insufficient funds.");
-            }
-            
-        } else {
-            System.out.println("Transaction FAILED: Blocked by AntiFraud Engine.");
+    if (this.validate()) {
+        try {
+            this.source.withdraw(this.amount);
+            this.status = "APPROVED";
+            System.out.println("Transaction APPROVED.");
+        } catch (Exception e) {
+            this.status = "FAILED";
+            System.out.println("Transaction FAILED: " + e.getMessage());
         }
+    } else {
+        System.out.println("Transaction FAILED: Blocked by AntiFraud Engine.");
     }
+}
     
 
     
