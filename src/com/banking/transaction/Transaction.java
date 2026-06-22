@@ -1,11 +1,14 @@
+package com.banking.transaction;
+
 import java.util.UUID;
 import java.time.LocalDateTime;
-
+import com.banking.account.BankAccount;
+import com.banking.security.AntiFraudEngine;
 
 public abstract class Transaction {
     
     private UUID transactionID;
-    private BankAccount source
+    private BankAccount source;
     private double amount;
     private LocalDateTime timestamp;
     private String status;
@@ -36,10 +39,8 @@ public abstract class Transaction {
         return true;
     }
     
-    /**
-     * MÉTODO PROCESS
-     * Tenta validar a transação e, se aprovada, efetua o saque na conta de origem.
-     */
+    // Tenta validar a transação e, se aprovada, efetua o saque na conta de origem.
+     
     public void process() {
         // Só avança se passar na validação do antifraude
         if(this.validate()) {
@@ -71,6 +72,13 @@ public abstract class Transaction {
     public BankAccount getSource() { 
         return source; 
     }
+    public UUID getTransactionId() {
+        return transactionID;
+    }
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
     
     // Setters
     public void setStatus(String status) { 
