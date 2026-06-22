@@ -7,7 +7,7 @@ public class CorporateCustomer extends User {
     private String cnpj;
     private String businessName;
     private String tradeName;
-    private list<Employee> allowedEmployees;
+    private List<Employee> allowedEmployees;
     
     
     public CorporateCustomer(String name, String email, String cnpj, String businessName, String tradeName) {
