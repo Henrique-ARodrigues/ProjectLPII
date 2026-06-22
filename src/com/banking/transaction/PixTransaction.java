@@ -15,6 +15,17 @@ public class PixTransaction extends Transaction {
     }    
     
 
+    @Override
+    public boolean validate() {
+        if(this.pixKey == null || this.pixKey.trim().isEmpty()) {
+            this.setStatus("FAILED");
+            return false;
+        }
+
+        return super.validate();
+    }
+
+
     // Getter
     public String getPixKey() {
         return pixKey;
