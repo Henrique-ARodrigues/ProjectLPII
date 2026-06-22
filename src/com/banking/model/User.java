@@ -30,11 +30,7 @@ public class User {
         return id;
     }
 
-<<<<<<< HEAD
-    public int getPassword() {
-=======
     public String getPassword() {
->>>>>>> 18fa0de1ca0b7ae6bfdc0ac741415764ee23c260
         return password;
     }
 
