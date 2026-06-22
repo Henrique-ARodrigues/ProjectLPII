@@ -1,4 +1,5 @@
 package account;
 
-public class VariableIncome {
+public class VariableIncome extends InvestmentOption {
+
 }
