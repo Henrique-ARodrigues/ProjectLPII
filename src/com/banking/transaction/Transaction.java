@@ -15,8 +15,7 @@ public abstract class Transaction {
     private LocalDateTime timestamp;
     private String status;
 
-    public Transaction(BankAccount source, double amount,
-                       LocalDateTime timestamp, BankAccount destination) {
+    public Transaction(BankAccount source, double amount, LocalDateTime timestamp, BankAccount destination) {
 
         this.transactionID = UUID.randomUUID();
         this.amount = amount;
