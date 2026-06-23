@@ -15,8 +15,7 @@ public abstract class Transaction {
     private LocalDateTime timestamp;
     private String status;
 
-    public Transaction(BankAccount source, double amount,
-                       LocalDateTime timestamp, BankAccount destination) {
+    public Transaction(BankAccount source, double amount, LocalDateTime timestamp, BankAccount destination) {
 
         this.transactionID = UUID.randomUUID();
         this.amount = amount;
@@ -41,17 +40,23 @@ public abstract class Transaction {
     }
 
     public void process() {
+        // Impede reprocessar transações que já saíram do estado PENDING
+        if (!"PENDING".equalsIgnoreCase(this.status)) {
+            System.out.println("ERROR: Transaction cannot be processed. Current status is already: " + this.status);
+            return;
+        }
 
         if (this.validate()) {
-
             try {
-
+                // Executa o saque na conta de origem
                 this.source.withdraw(this.amount);
 
+                // Se houver uma conta de destino configurada, realiza o depósito
                 if (this.destination != null) {
                     this.destination.deposit(this.amount);
                 }
 
+                // Define o status final de sucesso
                 this.status = "APPROVED";
 
                 System.out.println(
@@ -60,7 +65,7 @@ public abstract class Transaction {
                 );
 
             } catch (Exception e) {
-
+                // Se o saque falhar (ex: saldo insuficiente), muda o status para FAILED
                 this.status = "FAILED";
 
                 System.out.println(
@@ -70,11 +75,14 @@ public abstract class Transaction {
 
         } else {
 
+            this.status = "REJECTED";
             System.out.println(
                 "Transaction FAILED: Blocked by AntiFraud Engine."
             );
         }
     }
+
+
 
     // Getters
 
