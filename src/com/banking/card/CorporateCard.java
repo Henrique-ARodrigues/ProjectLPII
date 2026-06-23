@@ -39,4 +39,6 @@ public class CorporateCard {
     public void setStatus(String status) { this.status = status; }
     public void setDailyLimit(double dailyLimit) { this.dailyLimit = dailyLimit; }
     public void setHolder(Employee holder) { this.holder = holder; }
+
+    
 }
