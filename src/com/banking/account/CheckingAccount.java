@@ -12,6 +12,21 @@ public class CheckingAccount extends BankAccount {
         this.overdraftLimit = overdraftLimit;
     }
 
+
+
+    @Override
+    public void withdraw(double amount) throws InvalidDataException, InsufficientBalanceException {
+        if (amount <= 0) {
+            throw new InvalidDataException("O valor do saque deve ser positivo.");
+        }
+
+        // Permite sacar usando o Saldo + Limite do Cheque Especial
+        if (amount > (this.getBalance() + this.overdraftLimit)) {
+            throw new InsufficientBalanceException("Saldo e limite insuficientes para realizar o saque.");
+        }
+
+        
+    }
     
      // Calcula as taxas da conta corrente.
       // Taxa fixa de manutenção de R$ 20,00.
