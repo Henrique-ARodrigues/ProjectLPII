@@ -7,8 +7,8 @@ public class BoletoTransaction extends Transaction {
     
     private String barCode;
 
-    public BoletoTransaction(BankAccount source, BankAccount destination, double amount, LocalDateTime timestamp, String barCode) {
-        super(source, destination, amount, timestamp);
+    public BoletoTransaction(BankAccount source, double amount, LocalDateTime timestamp, BankAccount destination String barCode) {
+        super(source, amount, timestamp, destination);
         this.barCode = barCode;
     }    
 

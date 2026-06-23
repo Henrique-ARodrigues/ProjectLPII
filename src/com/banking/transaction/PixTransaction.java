@@ -9,8 +9,8 @@ public class PixTransaction extends Transaction {
     
     
 
-    public PixTransaction(BankAccount source, double amount, LocalDateTime timestamp, String pixKey) {
-        super(source, amount, timestamp);
+    public PixTransaction(BBankAccount source, double amount, LocalDateTime timestamp, BankAccount destination String pixKey) {
+        super(source, amount, timestamp, destination);
         this.pixKey = pixKey;
     }    
     
